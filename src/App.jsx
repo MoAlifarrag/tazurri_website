@@ -73,6 +73,8 @@ const ForceCard = ({ title, img, text, delay }) => {
 };
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   return (
     <div className="min-h-screen bg-[#fcfcf9]">
       {/* Background Blobs for Atmosphere */}
@@ -82,19 +84,43 @@ function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed w-full z-50 py-4 px-8 flex justify-between items-center bg-white/40 backdrop-blur-xl border-b border-white/20">
+      <nav className="fixed w-full z-50 py-4 px-6 md:px-8 flex justify-between items-center bg-white/40 backdrop-blur-xl border-b border-white/20">
         <div className="flex items-center gap-2">
-          <img src="/assets/Final Logo-01.png" alt="Tazuri Logo" className="h-14 md:h-20 transition-all hover:scale-105" />
+          <img src="/assets/Final Logo-01.png" alt="Tazuri Logo" className="h-12 md:h-20 transition-all hover:scale-105" />
         </div>
+
+        {/* Desktop Menu */}
         <div className="hidden md:flex gap-10 text-xs uppercase tracking-[0.2em] font-bold">
           <a href="#about" className="hover:text-primary transition-colors">Vision</a>
           <a href="#services" className="hover:text-primary transition-colors">Services</a>
           <a href="#forces" className="hover:text-primary transition-colors">The Forces</a>
           <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
         </div>
-        <button className="md:hidden">
-          <Menu size={24} />
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2 text-dark hover:text-primary transition-colors"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
+
+        {/* Mobile Menu Drawer */}
+        <div className={`fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center gap-12 transition-all duration-500 ease-in-out md:hidden ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+          <button
+            className="absolute top-6 right-6 p-2"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <X size={32} />
+          </button>
+          <img src="/assets/Final Logo-01.png" alt="Tazuri" className="h-20 mb-8" />
+          <div className="flex flex-col items-center gap-8 text-xl font-serif">
+            <a href="#about" onClick={() => setIsMenuOpen(false)} className="hover:text-primary">Vision</a>
+            <a href="#services" onClick={() => setIsMenuOpen(false)} className="hover:text-primary">Services</a>
+            <a href="#forces" onClick={() => setIsMenuOpen(false)} className="hover:text-primary">The Forces</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="hover:text-primary">Contact</a>
+          </div>
+        </div>
       </nav>
 
       {/* Hero Section */}
@@ -248,13 +274,13 @@ function App() {
       </section>
 
       {/* Partners */}
-      <section className="bg-[#f5f5f0] py-40 border-y border-black/5">
-        <div className="container">
+      <section className="bg-[#f5f5f0] py-24 md:py-40 border-y border-black/5">
+        <div className="container px-6 md:px-8">
           <SectionHeading title="Success Partners" subtitle="Building Empires Together" />
-          <div className="flex justify-center items-center mt-20">
+          <div className="flex justify-center items-center mt-12 md:mt-20">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="w-full max-w-5xl bg-white p-20 rounded-[60px] shadow-2xl overflow-hidden text-center"
+              className="w-full max-w-5xl bg-white p-10 md:p-20 rounded-[30px] md:rounded-[60px] shadow-2xl overflow-hidden text-center"
             >
               <img src="/assets/Clients.png" alt="Clients" className="w-full h-auto object-contain transition-all" />
             </motion.div>
@@ -263,24 +289,24 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-dark text-white pt-32 pb-16">
+      <footer id="contact" className="bg-dark text-white pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-8">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-20 border-b border-white/10 pb-32 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 border-b border-white/10 pb-20 md:pb-32 mb-16">
             <div>
-              <img src="/assets/Final Logo-01.png" alt="Tazuri" className="h-24 mb-12 brightness-0 invert" />
-              <h2 className="text-5xl font-serif max-w-md leading-tight">Let’s Create Something <span className="text-primary">Remarkable</span> Together.</h2>
+              <img src="/assets/Final Logo-01.png" alt="Tazuri" className="h-16 md:h-24 mb-8 md:mb-12 brightness-0 invert" />
+              <h2 className="text-4xl md:text-5xl font-serif max-w-md leading-tight">Let’s Create Something <span className="text-primary">Remarkable</span> Together.</h2>
             </div>
-            <div className="grid grid-cols-2 gap-20 pt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-20 pt-6 md:pt-10">
               <div>
-                <h5 className="font-bold uppercase text-xs tracking-[0.3em] text-primary mb-10">Connect</h5>
-                <ul className="space-y-6 text-xl font-serif">
-                  <li className="hover:text-primary transition-colors cursor-pointer underline decoration-primary/30">Hello@tazuri.com</li>
+                <h5 className="font-bold uppercase text-xs tracking-[0.3em] text-primary mb-8 md:mb-10">Connect</h5>
+                <ul className="space-y-4 md:space-y-6 text-lg md:text-xl font-serif">
+                  <li className="hover:text-primary transition-colors cursor-pointer underline decoration-primary/30 break-all">Hello@tazuri.com</li>
                   <li className="hover:text-primary transition-colors cursor-pointer">+20 100 000 0000</li>
                 </ul>
               </div>
               <div>
-                <h5 className="font-bold uppercase text-xs tracking-[0.3em] text-primary mb-10">Follow</h5>
-                <ul className="space-y-6 text-xl font-serif">
+                <h5 className="font-bold uppercase text-xs tracking-[0.3em] text-primary mb-8 md:mb-10">Follow</h5>
+                <ul className="space-y-4 md:space-y-6 text-lg md:text-xl font-serif">
                   <li className="hover:text-primary transition-colors cursor-pointer">Instagram</li>
                   <li className="hover:text-primary transition-colors cursor-pointer">LinkedIn</li>
                   <li className="hover:text-primary transition-colors cursor-pointer">Behance</li>
@@ -288,9 +314,9 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.5em] text-gray-500">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] text-gray-500 text-center md:text-left">
             <p>© 2026 TAZURI STUDIOS. ALL RIGHTS RESERVED. AND BON VOYAGE.</p>
-            <div className="flex gap-12">
+            <div className="flex gap-8 md:gap-12">
               <span className="hover:text-white cursor-pointer transition-colors">Privacy Policy</span>
               <span className="hover:text-white cursor-pointer transition-colors">Terms of Service</span>
             </div>
