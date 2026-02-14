@@ -52,6 +52,30 @@ const Navbar = () => {
                                 <span className="hidden md:block font-serif text-sm tracking-widest font-bold text-dark">TAZURI</span>
                             </a>
 
+                            {/* Mobile Slogan - Filling the middle space with premium branding */}
+                            <div className="md:hidden flex-1 flex justify-center items-center px-2 overflow-hidden">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 5 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 1, ease: "easeOut" }}
+                                    className="text-center flex flex-col items-center"
+                                >
+                                    <span className="block font-serif italic text-[7px] xs:text-[8px] leading-none text-dark/40 tracking-[0.3em] uppercase">
+                                        Not a company
+                                    </span>
+                                    <span className="block font-serif italic text-[10px] xs:text-[11px] leading-none premium-gradient-text font-black tracking-[0.15em] uppercase mt-1">
+                                        A Creation.
+                                    </span>
+                                    {/* Minimalist animated divider */}
+                                    <motion.div
+                                        initial={{ width: 0, opacity: 0 }}
+                                        animate={{ width: "80%", opacity: 1 }}
+                                        transition={{ delay: 0.8, duration: 1.5 }}
+                                        className="h-[0.5px] bg-gradient-to-r from-transparent via-primary/50 to-transparent mt-1.5"
+                                    />
+                                </motion.div>
+                            </div>
+
                             {/* 2. Desktop Navigation (Hidden on Mobile) */}
                             <nav className="hidden md:flex items-center gap-8">
                                 {navLinks.map((link) => (

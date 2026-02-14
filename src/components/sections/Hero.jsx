@@ -47,11 +47,10 @@ const Hero = () => {
                     whileHover={{ scale: 1.05 }}
                     className="shrink-0 pt-0 md:pt-0 md:-mt-20 pb-0 cursor-crosshair"
                 >
-                    <div className="relative w-40 h-28 md:w-60 md:h-48 lg:w-48 lg:h-36 xl:w-60 xl:h-48 overflow-hidden flex items-center justify-center">
+                    <div className="relative w-40 h-32 md:w-60 md:h-48 lg:w-48 lg:h-36 xl:w-60 xl:h-48 flex items-center justify-center">
                         <img
                             src="/assets/Final Logo-01.png"
-                            className="w-full h-auto object-contain select-none drop-shadow-4xl"
-                            style={{ transform: 'translateY(5px)' }} // Slight adjustment for full tip
+                            className="w-full h-full object-contain select-none drop-shadow-4xl"
                             alt="Tazuri Icon"
                         />
                     </div>
