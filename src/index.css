@@ -1,13 +1,13 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100;300;400;500;600;700;800;900&display=swap');
 
 @theme {
   --color-primary: #8ba888;
-  --color-secondary: #e8eee7;
-  --color-dark: #1a1a1a;
-  --color-cream: #f5f5f0;
+  --color-dark: #0a0a0a;
+  --color-cream: #fcfcf9;
 
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Outfit", sans-serif;
 }
 
 :root {
@@ -40,21 +40,20 @@ html {
 
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #f5f5f0;
+    background: #fcfcf9;
   }
 
   ::-webkit-scrollbar-thumb {
     background: #8ba888;
     border-radius: 10px;
-    border: 3px solid #f5f5f0;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #1a1a1a;
+    background: #0a0a0a;
   }
 
   h1,
@@ -66,7 +65,7 @@ html {
 
 @layer components {
   .container {
-    @apply max-w-[1200px] mx-auto px-8;
+    @apply max-w-[1440px] mx-auto px-8;
   }
 
   .gradient-text {
@@ -82,14 +81,53 @@ html {
   }
 }
 
-/* Custom Utilities or animations that tailwind doesn't handle easily */
+/* Premium Effects */
+.premium-gradient-text {
+  background: linear-gradient(135deg, #1a1a1a 0%, #8ba888 50%, #1a1a1a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-flow 8s ease infinite;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float-royal {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+.animate-float-royal {
+  animation: float-royal 7s ease-in-out infinite;
+}
+
 @keyframes float {
   0% {
     transform: translateY(0px);
   }
 
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
 
   100% {
@@ -103,4 +141,19 @@ html {
 
 .drop-shadow-3xl {
   filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.25));
+}
+
+.shadow-royal {
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.3);
+}
+
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.grid-overlay {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(139, 168, 136, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 168, 136, 0.05) 1px, transparent 1px);
 }

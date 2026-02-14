@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tazuri.com/sitemap.xml
