@@ -24,16 +24,36 @@ const Contact = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulate API call
-        setTimeout(() => {
+        
+        try {
+            const response = await fetch("https://formspree.io/f/mdapdayv", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: formState.name,
+                    email: formState.email,
+                    interests: formState.interests.join(", "),
+                    message: formState.message
+                })
+            });
+
+            if (response.ok) {
+                setIsSuccess(true);
+                setFormState({ name: '', email: '', interests: [], message: '' });
+                setTimeout(() => setIsSuccess(false), 5000);
+            } else {
+                alert("There was an error sending your message. Please try again or contact us directly at Voyage@tazuri.net");
+            }
+        } catch (error) {
+            alert("Network error. Please try again later.");
+        } finally {
             setIsSubmitting(false);
-            setIsSuccess(true);
-            setFormState({ name: '', email: '', interests: [], message: '' });
-            setTimeout(() => setIsSuccess(false), 5000);
-        }, 2000);
+        }
     };
 
     return (
@@ -67,8 +87,7 @@ const Contact = () => {
                         <div className="space-y-6">
                             <h4 className="text-white text-sm uppercase tracking-widest opacity-70">Contact Directly</h4>
                             <div className="flex flex-col gap-4 text-xl font-light text-gray-300">
-                                <a href="mailto:hello@tazuri.com" className="hover:text-[#8ba888] transition-colors w-fit">hello@tazuri.com</a>
-                                <a href="tel:+201000000000" className="hover:text-[#8ba888] transition-colors w-fit">+20 (100) 000-0000</a>
+                                <a href="mailto:Voyage@tazuri.net" className="hover:text-[#8ba888] transition-colors w-fit">Voyage@tazuri.net</a>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({ onOpenProfile }) => {
     return (
         <footer id="contact" className="bg-dark text-white pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-8">
             <div className="container">
@@ -13,16 +13,16 @@ const Footer = () => {
                         <div>
                             <h5 className="font-bold uppercase text-xs tracking-[0.3em] text-primary mb-8 md:mb-10">Connect</h5>
                             <ul className="space-y-4 md:space-y-6 text-lg md:text-xl font-serif">
-                                <li className="hover:text-primary transition-colors cursor-pointer underline decoration-primary/30 break-all">Hello@tazuri.com</li>
-                                <li className="hover:text-primary transition-colors cursor-pointer">+20 100 000 0000</li>
+                                <li><a href="mailto:Voyage@tazuri.net" className="hover:text-primary transition-colors underline decoration-primary/30 break-all">Voyage@tazuri.net</a></li>
                             </ul>
                         </div>
                         <div>
                             <h5 className="font-bold uppercase text-xs tracking-[0.3em] text-primary mb-8 md:mb-10">Follow</h5>
                             <ul className="space-y-4 md:space-y-6 text-lg md:text-xl font-serif">
-                                <li className="hover:text-primary transition-colors cursor-pointer">Instagram</li>
-                                <li className="hover:text-primary transition-colors cursor-pointer">LinkedIn</li>
-                                <li className="hover:text-primary transition-colors cursor-pointer">Behance</li>
+                                <li><a href="https://www.facebook.com/share/1AfawHtwMQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">Facebook</a></li>
+                                <li><a href="https://www.instagram.com/maisontazuri?igsh=bTVkNTQyemNmbWN6" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">Instagram</a></li>
+                                <li><a href="https://www.linkedin.com/company/maisontazuri/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">LinkedIn</a></li>
+                                <li className="pt-4"><button onClick={onOpenProfile} className="text-primary font-bold hover:text-white transition-colors cursor-pointer uppercase text-xs tracking-widest">Company Profile</button></li>
                             </ul>
                         </div>
                     </div>

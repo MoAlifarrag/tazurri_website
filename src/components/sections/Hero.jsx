@@ -2,23 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-/**
- * TAZURI MASTER LIFESTYLE - CREATIVE POLISH
- * -----------------------------------------
- * 1. LOGO: Elevated positioning for a more dominant entry.
- * 2. BACKGROUND: Subtly faded (0.15 opacity) for a whisper of heritage.
- * 3. BUTTON: "The Royal Portal" - A creative, high-fashion button redesign.
- */
-
 const Hero = () => {
     return (
         <section className="relative h-[100dvh] min-h-[600px] w-full flex flex-col items-center bg-[#fcfcf9] overflow-hidden">
-
-            {/* 1. THE DRAMATIC BACKDROP (Subtle Refinement) */}
+            
+            {/* 1. THE DRAMATIC BACKDROP */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
                 <motion.div
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.2 }} // Increased opacity for mobile clarity
+                    animate={{ opacity: 0.2 }}
                     transition={{ duration: 2.5 }}
                     className="w-full h-full"
                 >
@@ -30,10 +22,10 @@ const Hero = () => {
                 </motion.div>
             </div>
 
-            {/* 2. THE CONTENT HUB (Unified Flow) */}
+            {/* 2. THE CONTENT HUB */}
             <div className="relative z-10 w-full h-full flex flex-col items-center justify-center gap-6 px-4 max-w-[1500px] mx-auto md:justify-between md:pt-10 md:pb-6 lg:pt-6">
 
-                {/* TOP: Floating Logo Anchor (Moved Up) */}
+                {/* TOP: Floating Logo Anchor */}
                 <motion.div
                     initial={{ opacity: 0, y: -40 }}
                     animate={{
@@ -45,7 +37,7 @@ const Hero = () => {
                         y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
                     }}
                     whileHover={{ scale: 1.05 }}
-                    className="shrink-0 pt-0 md:pt-0 md:-mt-20 pb-0 cursor-crosshair"
+                    className="shrink-0 pt-0 md:pt-0 md:-mt-20 pb-0 cursor-crosshair relative z-10"
                 >
                     <div className="relative w-40 h-32 md:w-60 md:h-48 lg:w-48 lg:h-36 xl:w-60 xl:h-48 flex items-center justify-center">
                         <img
@@ -57,7 +49,7 @@ const Hero = () => {
                 </motion.div>
 
                 {/* CENTRE: Headline & Tagline */}
-                <div className="flex flex-col items-center text-center gap-4 md:gap-10 lg:gap-6 w-full flex-grow-0 md:flex-grow justify-center mt-0 md:mt-0">
+                <div className="flex flex-col items-center text-center gap-4 md:gap-10 lg:gap-6 w-full flex-grow-0 md:flex-grow justify-center mt-0 md:mt-0 relative z-10">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -81,14 +73,23 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* BOTTOM: Creative "Royal Portal" Button */}
+                {/* BOTTOM: Direct Link Button */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1 }}
-                    className="shrink-0 pb-6 w-full flex flex-col items-center"
+                    className="shrink-0 pb-6 w-full flex flex-col items-center relative z-10"
                 >
-                    <a href="#about" className="group relative px-6 py-5 md:px-12 md:py-4 bg-[#0a0a0a] hover:bg-[#8ba888] rounded-full transition-colors duration-500 shadow-xl hover:shadow-2xl hover:shadow-[#8ba888]/20 w-full md:w-auto flex justify-center">
+                    <a 
+                        href="#vision"
+                        className="group relative px-6 py-5 md:px-12 md:py-4 bg-[#0a0a0a] hover:bg-[#8ba888] rounded-full transition-colors duration-500 shadow-xl hover:shadow-2xl hover:shadow-[#8ba888]/20 w-full md:w-auto flex justify-center overflow-hidden"
+                    >
+                        {/* Shimmer Effect */}
+                        <motion.div 
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full"
+                            animate={{ translateX: ["-100%", "200%"] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                        />
                         <span className="relative z-10 flex items-center justify-center gap-3 text-lg md:text-[13px] text-white tracking-[0.2em] font-medium uppercase transition-colors">
                             Enter The Realm
                             <ArrowRight size={22} className="transition-transform duration-300 group-hover:translate-x-1" />

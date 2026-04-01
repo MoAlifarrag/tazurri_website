@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar = ({ onOpenProfile }) => {
     const [isVisible, setIsVisible] = useState(false);
     const { scrollY } = useScroll();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,60 +34,43 @@ const Navbar = () => {
                     animate={{ y: 0, opacity: 1, x: "-50%" }}
                     exit={{ y: -100, opacity: 0, x: "-50%" }}
                     transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                    className="fixed top-6 left-1/2 z-50 w-full max-w-[90%] md:max-w-3xl"
+                    className="fixed top-6 left-1/2 z-50 w-full max-w-[90%] md:max-w-4xl"
                 >
                     <div className="relative">
                         {/* The Floating Capsule */}
                         <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-2xl shadow-black/5 rounded-full px-4 py-3 md:px-6 md:py-3 flex items-center justify-between">
-
+                            
                             {/* 1. Brand / Logo (Compact) */}
                             <a href="#" className="flex items-center gap-2 group">
                                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform">
-                                    <img
-                                        src="/assets/Final Logo-01.png"
-                                        alt="Tazuri"
+                                    <img 
+                                        src="/assets/Final Logo-01.png" 
+                                        alt="Tazuri" 
                                         className="w-full h-full object-contain scale-125"
                                     />
                                 </div>
-                                <span className="hidden md:block font-serif text-sm tracking-widest font-bold text-dark">TAZURI</span>
+                                <span className="hidden md:block font-serif text-sm tracking-widest font-bold text-dark uppercase">TAZURI</span>
                             </a>
 
-                            {/* Mobile Slogan - Filling the middle space with premium branding */}
-                            <div className="md:hidden flex-1 flex justify-center items-center px-2 overflow-hidden">
-                                <motion.div
-                                    initial={{ opacity: 0, y: 5 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 1, ease: "easeOut" }}
-                                    className="text-center flex flex-col items-center"
-                                >
-                                    <span className="block font-serif italic text-[7px] xs:text-[8px] leading-none text-dark/40 tracking-[0.3em] uppercase">
-                                        Not a company
-                                    </span>
-                                    <span className="block font-serif italic text-[10px] xs:text-[11px] leading-none premium-gradient-text font-black tracking-[0.15em] uppercase mt-1">
-                                        A Creation.
-                                    </span>
-                                    {/* Minimalist animated divider */}
-                                    <motion.div
-                                        initial={{ width: 0, opacity: 0 }}
-                                        animate={{ width: "80%", opacity: 1 }}
-                                        transition={{ delay: 0.8, duration: 1.5 }}
-                                        className="h-[0.5px] bg-gradient-to-r from-transparent via-primary/50 to-transparent mt-1.5"
-                                    />
-                                </motion.div>
-                            </div>
-
-                            {/* 2. Desktop Navigation (Hidden on Mobile) */}
+                            {/* 2. Desktop Navigation */}
                             <nav className="hidden md:flex items-center gap-8">
                                 {navLinks.map((link) => (
                                     <a
                                         key={link.name}
                                         href={link.href}
-                                        className="relative text-[11px] uppercase tracking-[0.2em] font-medium text-dark/60 hover:text-dark transition-colors py-2 group"
+                                        className="relative text-[10px] uppercase tracking-[0.2em] font-medium text-dark/60 hover:text-dark transition-colors py-2 group"
                                     >
                                         {link.name}
                                         <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
                                     </a>
                                 ))}
+                                <button
+                                    onClick={onOpenProfile}
+                                    className="relative text-[10px] uppercase tracking-[0.2em] font-bold text-primary hover:text-dark transition-colors py-2 group cursor-pointer"
+                                >
+                                    Company Profile
+                                    <span className="absolute bottom-0 left-0 w-0 h-px bg-dark transition-all duration-300 group-hover:w-full" />
+                                </button>
                             </nav>
 
                             {/* 3. Actions / Mobile Menu Toggle */}
@@ -109,7 +92,7 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        {/* Mobile Dropdown Menu (Animate Height) */}
+                        {/* Mobile Dropdown Menu */}
                         <AnimatePresence>
                             {isMenuOpen && (
                                 <motion.div
@@ -124,16 +107,25 @@ const Navbar = () => {
                                             key={link.name}
                                             href={link.href}
                                             onClick={() => setIsMenuOpen(false)}
-                                            className="text-sm uppercase tracking-[0.2em] font-medium text-dark/80 hover:text-primary transition-colors"
+                                            className="text-[10px] uppercase tracking-[0.2em] font-medium text-dark/80 hover:text-primary transition-colors"
                                         >
                                             {link.name}
                                         </a>
                                     ))}
+                                    <button
+                                        onClick={() => {
+                                            setIsMenuOpen(false);
+                                            onOpenProfile();
+                                        }}
+                                        className="text-[10px] uppercase tracking-[0.2em] font-bold text-primary hover:text-dark transition-colors"
+                                    >
+                                        Company Profile
+                                    </button>
                                     <div className="w-full h-px bg-black/5 my-2" />
                                     <a
                                         href="#contact"
                                         onClick={() => setIsMenuOpen(false)}
-                                        className="w-full text-center py-3 bg-dark text-white rounded-xl text-xs uppercase tracking-widest font-bold"
+                                        className="w-full text-center py-3 bg-dark text-white rounded-xl text-[10px] uppercase tracking-widest font-bold"
                                     >
                                         Start a Project
                                     </a>

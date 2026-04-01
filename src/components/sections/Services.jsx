@@ -1,52 +1,68 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Target, Sparkles, Code2, ShieldCheck, Palette, Lightbulb, ArrowUpRight } from 'lucide-react';
+import { Target, Sparkles, Code2, ShieldCheck, Palette, Lightbulb, ArrowUpRight, BookOpen, Megaphone, Star } from 'lucide-react';
+import FlipbookModal from '../common/FlipbookModal';
 
 const Services = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isFlipbookOpen, setIsFlipbookOpen] = useState(false);
 
     const services = [
         {
             id: "01",
             name: "Digital Marketing",
             icon: <Target />,
-            img: "Digital-Marketing.png",
+            img: "services/Digital-Marketing.png",
             desc: "Data-driven strategies that don't just reach audiences, but resonate with them. We turn clicks into loyal communities."
         },
         {
             id: "02",
             name: "Media Production",
             icon: <Sparkles />,
-            img: "Media-Production.png",
+            img: "services/Media-Production.png",
             desc: "Cinematic storytelling that captures the essence of your brand. From concept to final cut, we create visual masterpieces."
         },
         {
             id: "03",
             name: "Software Solutions",
             icon: <Code2 />,
-            img: "Software-Solutions.png",
+            img: "services/Software-Solutions.png",
             desc: "Robust, scalable, and beautiful code. We build the digital infrastructure that powers your business growth."
         },
         {
             id: "04",
             name: "Public Relations",
             icon: <ShieldCheck />,
-            img: "Public-Relations---PR.png",
+            img: "services/Public-Relations---PR.png",
             desc: "Crafting and protecting your narrative. We build bridges between your brand and the public with strategic communication."
         },
         {
             id: "05",
             name: "Branding",
             icon: <Palette />,
-            img: "Branding.png",
+            img: "services/Branding.png",
             desc: "More than a logo. We forge identities that stand the test of time and speak volumes without saying a word."
         },
         {
             id: "06",
             name: "Business Dev",
             icon: <Lightbulb />,
-            img: "Business-Development.png",
+            img: "services/Business-Development.png",
             desc: "Strategic growth hacking. We identify opportunities and unlock new revenue streams for sustainable expansion."
+        },
+        {
+            id: "07",
+            name: "Offline Marketing",
+            icon: <Megaphone />,
+            img: "services/Offline-Marketing.png",
+            desc: "Transforming physical spaces and traditional media into powerful touchpoints that drive real-world engagement."
+        },
+        {
+            id: "08",
+            name: "Events Planning",
+            icon: <Star />,
+            img: "services/Events-Planning.png",
+            desc: "Architecting unforgettable experiences. We design, manage, and execute events that leave a lasting impact."
         }
     ];
 
@@ -55,14 +71,25 @@ const Services = () => {
             <div className="container px-6 mx-auto">
 
                 {/* Header */}
-                <div className="mb-20 md:mb-32 max-w-4xl">
-                    <span className="text-[#8ba888] uppercase tracking-[0.3em] text-xs font-bold mb-6 block">
-                        Our Expertise
-                    </span>
-                    <h2 className="text-5xl md:text-8xl font-serif text-[#111111] leading-[0.9]">
-                        Creative Thinking <br />
-                        <span className="italic text-[#8ba888] pl-20 md:pl-32">Smart Execution.</span>
-                    </h2>
+                <div className="mb-20 md:mb-32 flex flex-col md:flex-row md:items-end justify-between gap-8">
+                    <div className="max-w-4xl">
+                        <span className="text-[#8ba888] uppercase tracking-[0.3em] text-xs font-bold mb-6 block">
+                            Our Expertise
+                        </span>
+                        <h2 className="text-5xl md:text-8xl font-serif text-[#111111] leading-[0.9]">
+                            Creative Thinking <br />
+                            <span className="italic text-[#8ba888] pl-20 md:pl-32">Smart Execution.</span>
+                        </h2>
+                    </div>
+
+                    <button 
+                        onClick={() => setIsFlipbookOpen(true)}
+                        className="flex items-center justify-center gap-3 px-8 py-5 md:py-4 bg-[#111111] hover:bg-[#8ba888] text-white rounded-full transition-colors duration-500 shadow-xl group border border-white/10"
+                    >
+                        <BookOpen size={20} />
+                        <span className="text-sm md:text-xs uppercase tracking-widest font-bold">Services Portfolio</span>
+                        <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </button>
                 </div>
 
                 {/* Interactive Accordion Gallery */}
@@ -149,6 +176,12 @@ const Services = () => {
                     ))}
                 </div>
             </div>
+
+            <FlipbookModal 
+                isOpen={isFlipbookOpen} 
+                onClose={() => setIsFlipbookOpen(false)} 
+                pdfUrl="/Maison_Tazuri_Services.pdf" 
+            />
         </section>
     );
 };

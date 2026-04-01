@@ -11,9 +11,12 @@ import Footer from './components/sections/Footer';
 import BackgroundEffect from './components/common/BackgroundEffect';
 import Preloader from './components/common/Preloader';
 
+import FlipbookModal from './components/common/FlipbookModal';
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showNavbar, setShowNavbar] = useState(false);
+  const [isFlipbookOpen, setIsFlipbookOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +26,9 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const openFlipbook = () => setIsFlipbookOpen(true);
+  const closeFlipbook = () => setIsFlipbookOpen(false);
 
   return (
     <div className="min-h-screen bg-[#fcfcf9] selection:bg-[#8ba888] selection:text-white">
@@ -36,7 +42,12 @@ function App() {
         <>
           <BackgroundEffect />
           <AnimatePresence>
-            {showNavbar && <Navbar key="navbar" />}
+            {showNavbar && (
+              <Navbar 
+                key="navbar" 
+                onOpenProfile={openFlipbook} 
+              />
+            )}
           </AnimatePresence>
           <main>
             <Hero />
@@ -46,7 +57,13 @@ function App() {
             <Partners />
             <Contact />
           </main>
-          <Footer />
+          <Footer onOpenProfile={openFlipbook} />
+          
+          <FlipbookModal 
+            isOpen={isFlipbookOpen} 
+            onClose={closeFlipbook} 
+            pdfUrl="/Maison_Tazuri_Company_Profile.pdf" 
+          />
         </>
       )}
     </div>
