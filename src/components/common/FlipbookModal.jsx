@@ -53,13 +53,13 @@ const FlipbookModal = ({ isOpen, onClose, pdfUrl }) => {
             >
               {numPages && (
                 <HTMLFlipBook
-                  width={550}
-                  height={733}
+                  width={800}
+                  height={450}
                   size="stretch"
                   minWidth={315}
-                  maxWidth={1000}
-                  minHeight={420}
-                  maxHeight={1533}
+                  maxWidth={1200}
+                  minHeight={200}
+                  maxHeight={800}
                   maxShadowOpacity={0.5}
                   showCover={true}
                   mobileScrollSupport={true}
@@ -69,7 +69,7 @@ const FlipbookModal = ({ isOpen, onClose, pdfUrl }) => {
                     <div key={pNum} className="bg-white shadow-inner">
                       <Page 
                         pageNumber={pNum + 1} 
-                        width={550} 
+                        width={800} 
                         renderAnnotationLayer={false}
                         renderTextLayer={false}
                         className="pointer-events-none"

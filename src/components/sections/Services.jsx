@@ -87,7 +87,7 @@ const Services = () => {
                         className="flex items-center justify-center gap-3 px-8 py-5 md:py-4 bg-[#111111] hover:bg-[#8ba888] text-white rounded-full transition-colors duration-500 shadow-xl group border border-white/10"
                     >
                         <BookOpen size={20} />
-                        <span className="text-sm md:text-xs uppercase tracking-widest font-bold">Services Portfolio</span>
+                        <span className="text-sm md:text-xs uppercase tracking-widest font-bold">Check all services</span>
                         <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </button>
                 </div>

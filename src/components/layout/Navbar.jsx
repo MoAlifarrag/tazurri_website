@@ -68,7 +68,7 @@ const Navbar = ({ onOpenProfile }) => {
                                     onClick={onOpenProfile}
                                     className="relative text-[10px] uppercase tracking-[0.2em] font-bold text-primary hover:text-dark transition-colors py-2 group cursor-pointer"
                                 >
-                                    Company Profile
+                                    Portfolio
                                     <span className="absolute bottom-0 left-0 w-0 h-px bg-dark transition-all duration-300 group-hover:w-full" />
                                 </button>
                             </nav>
@@ -119,7 +119,7 @@ const Navbar = ({ onOpenProfile }) => {
                                         }}
                                         className="text-[10px] uppercase tracking-[0.2em] font-bold text-primary hover:text-dark transition-colors"
                                     >
-                                        Company Profile
+                                        Portfolio
                                     </button>
                                     <div className="w-full h-px bg-black/5 my-2" />
                                     <a

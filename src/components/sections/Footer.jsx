@@ -22,7 +22,7 @@ const Footer = ({ onOpenProfile }) => {
                                 <li><a href="https://www.facebook.com/share/1AfawHtwMQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">Facebook</a></li>
                                 <li><a href="https://www.instagram.com/maisontazuri?igsh=bTVkNTQyemNmbWN6" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">Instagram</a></li>
                                 <li><a href="https://www.linkedin.com/company/maisontazuri/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">LinkedIn</a></li>
-                                <li className="pt-4"><button onClick={onOpenProfile} className="text-primary font-bold hover:text-white transition-colors cursor-pointer uppercase text-xs tracking-widest">Company Profile</button></li>
+                                <li className="pt-4"><button onClick={onOpenProfile} className="text-primary font-bold hover:text-white transition-colors cursor-pointer uppercase text-xs tracking-widest">Portfolio</button></li>
                             </ul>
                         </div>
                     </div>
