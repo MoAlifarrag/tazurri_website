@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import HTMLFlipBook from 'react-pageflip';
 import { X, ChevronLeft, ChevronRight, Maximize2, Minimize2 } from 'lucide-react';
@@ -6,6 +6,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Setup PDF worker
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
+// Forward ref is required by react-pageflip for the child elements
+const PageContent = forwardRef(({ pageNum, width }, ref) => {
+  return (
+    <div ref={ref} className="bg-[#111] shadow-inner flex flex-col justify-center items-center overflow-hidden flipbook-page-container">
+      <Page 
+        pageNumber={pageNum} 
+        width={width}
+        renderAnnotationLayer={false}
+        renderTextLayer={false}
+        className="pointer-events-none bg-[#111]"
+      />
+    </div>
+  );
+});
 
 const FlipbookModal = ({ isOpen, onClose, pdfUrl }) => {
   const [numPages, setNumPages] = useState(null);
@@ -17,6 +32,11 @@ const FlipbookModal = ({ isOpen, onClose, pdfUrl }) => {
 
   if (!isOpen) return null;
 
+  // Determine aspect ratio dynamically based on PDF
+  const isCompanyProfile = pdfUrl?.includes('Company_Profile');
+  const baseWidth = isCompanyProfile ? 595 : 960;
+  const baseHeight = isCompanyProfile ? 842 : 540;
+
   return (
     <AnimatePresence>
       <motion.div
@@ -25,8 +45,17 @@ const FlipbookModal = ({ isOpen, onClose, pdfUrl }) => {
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 md:p-10"
       >
+        <style dangerouslySetInnerHTML={{__html: `
+          .flipbook-page-container .react-pdf__Page,
+          .flipbook-page-container .react-pdf__Page__canvas {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain;
+          }
+        `}} />
+        
         {/* Header Actions */}
-        <div className="absolute top-6 right-6 flex items-center gap-4 z-[70]">
+        <div className="absolute top-6 right-6 flex items-center gap-4 z-[80]">
           <button 
             onClick={() => setIsFullScreen(!isFullScreen)}
             className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
@@ -42,39 +71,31 @@ const FlipbookModal = ({ isOpen, onClose, pdfUrl }) => {
         </div>
 
         {/* Flipbook Container */}
-        <div className={`relative flex flex-col items-center justify-center transition-all duration-500 ${isFullScreen ? 'w-full h-full' : 'max-w-6xl w-full h-[85vh]'}`}>
+        <div className={`relative flex flex-col items-center justify-center transition-all duration-500 ${isFullScreen ? 'w-full h-full' : 'max-w-7xl w-full h-[95vh]'}`}>
           
           <div className="w-full h-full flex items-center justify-center overflow-hidden">
             <Document
               file={pdfUrl}
               onLoadSuccess={onDocumentLoadSuccess}
               loading={<div className="text-white text-xl font-serif">Opening Portfolio...</div>}
-              className="flex justify-center"
+              className="flex justify-center flex-col items-center w-full h-full"
             >
               {numPages && (
                 <HTMLFlipBook
-                  width={800}
-                  height={450}
+                  width={baseWidth}
+                  height={baseHeight}
                   size="stretch"
                   minWidth={315}
-                  maxWidth={1200}
-                  minHeight={200}
-                  maxHeight={800}
-                  maxShadowOpacity={0.5}
+                  maxWidth={2000}
+                  minHeight={250}
+                  maxHeight={isCompanyProfile ? 1414 : 1125}
+                  maxShadowOpacity={0.8}
                   showCover={true}
                   mobileScrollSupport={true}
-                  className="shadow-2xl"
+                  className="shadow-2xl mx-auto"
                 >
                   {[...Array(numPages).keys()].map((pNum) => (
-                    <div key={pNum} className="bg-white shadow-inner">
-                      <Page 
-                        pageNumber={pNum + 1} 
-                        width={800} 
-                        renderAnnotationLayer={false}
-                        renderTextLayer={false}
-                        className="pointer-events-none"
-                      />
-                    </div>
+                    <PageContent key={pNum} pageNum={pNum + 1} width={baseWidth} />
                   ))}
                 </HTMLFlipBook>
               )}
@@ -82,7 +103,7 @@ const FlipbookModal = ({ isOpen, onClose, pdfUrl }) => {
           </div>
 
           {/* Footer Navigation Hints */}
-          <div className="mt-8 flex items-center gap-6 text-white/50 text-sm uppercase tracking-widest font-bold">
+          <div className="mt-6 flex items-center gap-6 text-white/50 text-sm uppercase tracking-widest font-bold">
             <div className="flex items-center gap-2">
               <ChevronLeft size={16} /> Drag or Click to turn
             </div>
