@@ -20,10 +20,10 @@ const Navbar = ({ onOpenProfile }) => {
 
     // Navigation Links
     const navLinks = [
-        { name: 'Vision', href: '#vision' },
+        { name: 'Prophecy', href: '#vision' },
         { name: 'Forces', href: '#forces' },
-        { name: 'Services', href: '#services' },
-        { name: 'Partners', href: '#partners' },
+        { name: 'Duties', href: '#services' },
+        { name: 'Bannermen', href: '#partners' },
     ];
 
     return (
