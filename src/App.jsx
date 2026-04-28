@@ -54,7 +54,7 @@ function App() {
             <Prophecy />
             <Forces />
             <Duties />
-            <bannermen />
+            <Partners />
             <Contact />
           </main>
           <Footer onOpenProfile={openFlipbook} />
