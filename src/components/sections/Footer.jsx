@@ -7,7 +7,7 @@ const Footer = ({ onOpenProfile }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 border-b border-white/10 pb-20 md:pb-32 mb-16">
                     <div>
                         <img src="/assets/Final Logo-01.png" alt="Tazuri" className="h-16 md:h-24 mb-8 md:mb-12 brightness-0 invert" />
-                        <h2 className="text-4xl md:text-5xl font-serif max-w-md leading-tight">let's make our success  <span className="text-primary">legendary</span> Together.</h2>
+                        <h2 className="text-4xl md:text-5xl font-serif max-w-md leading-tight">let's make our Voyage  <span className="text-primary">legendary</span>.</h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-20 pt-6 md:pt-10">
                         <div>

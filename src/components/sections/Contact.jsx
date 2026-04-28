@@ -80,7 +80,7 @@ const Contact = () => {
                                 <span className="italic text-[#8ba888]">Set Sail?</span>
                             </h2>
                             <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-xl border-l-2 border-[#8ba888]/30 pl-8">
-                                You have the vision. We have the architecture. Let's build something that defies the ordinary.
+                                We have the vision. Let's Conquer the beyond lands.
                             </p>
                         </div>
 
@@ -157,7 +157,7 @@ const Contact = () => {
 
                             <div className="group pt-4">
                                 <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 group-focus-within:text-[#8ba888] transition-colors">
-                                    Your Vision (Optional)
+                                    Your Fantasy (Optional)
                                 </label>
                                 <textarea
                                     value={formState.message}

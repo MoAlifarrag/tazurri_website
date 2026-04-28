@@ -24,7 +24,7 @@ const Services = () => {
         },
         {
             id: "03",
-            name: "Software Solutions",
+            name: "DevOps Architecture",
             icon: <Code2 />,
             img: "services/Software-Solutions.png",
             desc: "Robust, scalable, and beautiful code. We build the digital infrastructure that powers your business growth."

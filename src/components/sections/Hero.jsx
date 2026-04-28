@@ -62,7 +62,7 @@ const Hero = () => {
 
                     <div className="space-y-4 md:space-y-6">
                         <p className="max-w-xl md:max-w-3xl mx-auto text-dark text-xl md:text-2xl lg:text-xl font-serif italic leading-tight px-4 opacity-90">
-                            "Every Empire Begins with a Prophecy. <br className="hidden md:block" /> Every masterpiece begins with a few prophecy, Every heritage begins with a legacy."
+                            "Every Empire Begins with a Prophecy. <br className="hidden md:block" /> Every heritage begins with a legacy."
                         </p>
 
                         <div className="flex items-center justify-center gap-4 md:gap-10 opacity-30">
