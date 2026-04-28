@@ -14,6 +14,7 @@ const Footer = ({ onOpenProfile }) => {
                             <h5 className="font-bold uppercase text-xs tracking-[0.3em] text-primary mb-8 md:mb-10">Connect</h5>
                             <ul className="space-y-4 md:space-y-6 text-lg md:text-xl font-serif">
                                 <li><a href="mailto:Voyage@tazuri.net" className="hover:text-primary transition-colors underline decoration-primary/30 break-all">Voyage@tazuri.net</a></li>
+                                <li><a href="tel:+201505901225" className="hover:text-primary transition-colors underline decoration-primary/30 break-all">+201505901225</a></li>
                             </ul>
                         </div>
                         <div>
