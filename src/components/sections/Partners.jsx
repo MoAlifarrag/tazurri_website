@@ -22,7 +22,7 @@ const Partners = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-4xl md:text-7xl font-serif text-[#111111]"
                     >
-                        Success <span className="italic text-[#8ba888]">Partners</span>
+                        Elite <span className="italic text-[#8ba888]">Bannermen</span>
                     </motion.h2>
                 </div>
 

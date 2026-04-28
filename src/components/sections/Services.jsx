@@ -10,14 +10,14 @@ const Services = () => {
     const services = [
         {
             id: "01",
-            name: "Digital Marketing",
+            name: "Brand Authority program",
             icon: <Target />,
             img: "services/Digital-Marketing.png",
             desc: "Data-driven strategies that don't just reach audiences, but resonate with them. We turn clicks into loyal communities."
         },
         {
             id: "02",
-            name: "Media Production",
+            name: "Holly wood working Day",
             icon: <Sparkles />,
             img: "services/Media-Production.png",
             desc: "Cinematic storytelling that captures the essence of your brand. From concept to final cut, we create visual masterpieces."
@@ -31,35 +31,35 @@ const Services = () => {
         },
         {
             id: "04",
-            name: "Public Relations",
+            name: "Elite Brand identity system",
             icon: <ShieldCheck />,
             img: "services/Public-Relations---PR.png",
             desc: "Crafting and protecting your narrative. We build bridges between your brand and the public with strategic communication."
         },
         {
             id: "05",
-            name: "Branding",
+            name: "Elite Transformation",
             icon: <Palette />,
             img: "services/Branding.png",
             desc: "More than a logo. We forge identities that stand the test of time and speak volumes without saying a word."
         },
         {
             id: "06",
-            name: "Business Dev",
+            name: "Luxury market Domination strategy",
             icon: <Lightbulb />,
             img: "services/Business-Development.png",
             desc: "Strategic growth hacking. We identify opportunities and unlock new revenue streams for sustainable expansion."
         },
         {
             id: "07",
-            name: "Offline Marketing",
+            name: "media tabloid exposure",
             icon: <Megaphone />,
             img: "services/Offline-Marketing.png",
             desc: "Transforming physical spaces and traditional media into powerful touchpoints that drive real-world engagement."
         },
         {
             id: "08",
-            name: "Events Planning",
+            name: "Entry luxury",
             icon: <Star />,
             img: "services/Events-Planning.png",
             desc: "Architecting unforgettable experiences. We design, manage, and execute events that leave a lasting impact."
@@ -74,15 +74,15 @@ const Services = () => {
                 <div className="mb-20 md:mb-32 flex flex-col md:flex-row md:items-end justify-between gap-8">
                     <div className="max-w-4xl">
                         <span className="text-[#8ba888] uppercase tracking-[0.3em] text-xs font-bold mb-6 block">
-                            Our Expertise
+                            our legacy
                         </span>
                         <h2 className="text-5xl md:text-8xl font-serif text-[#111111] leading-[0.9]">
-                            Creative Thinking <br />
-                            <span className="italic text-[#8ba888] pl-20 md:pl-32">Smart Execution.</span>
+                            Stratigistic Thinking <br />
+                            <span className="italic text-[#8ba888] pl-20 md:pl-32">Smart Conquering</span>
                         </h2>
                     </div>
 
-                    <button 
+                    <button
                         onClick={() => setIsFlipbookOpen(true)}
                         className="flex items-center justify-center gap-3 px-8 py-5 md:py-4 bg-[#111111] hover:bg-[#8ba888] text-white rounded-full transition-colors duration-500 shadow-xl group border border-white/10"
                     >
@@ -101,8 +101,8 @@ const Services = () => {
                             onClick={() => setActiveIndex(index)}
                             onHoverStart={() => setActiveIndex(index)}
                             className={`relative overflow-hidden rounded-[2rem] cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${activeIndex === index
-                                    ? 'lg:flex-[3] h-[500px] lg:h-auto bg-[#111111]'
-                                    : 'lg:flex-[1] h-[120px] lg:h-auto bg-white hover:bg-gray-50'
+                                ? 'lg:flex-[3] h-[500px] lg:h-auto bg-[#111111]'
+                                : 'lg:flex-[1] h-[120px] lg:h-auto bg-white hover:bg-gray-50'
                                 }`}
                         >
                             {/* Background Image (Visible only when active) */}
@@ -142,8 +142,8 @@ const Services = () => {
                                 <div className="mt-auto">
                                     <h3
                                         className={`font-serif text-2xl md:text-4xl leading-tight mb-4 transition-colors duration-500 ${activeIndex === index
-                                                ? 'text-white'
-                                                : 'text-[#111111] -rotate-90 lg:rotate-[-90deg] origin-left translate-y-20 lg:translate-x-[-50%] lg:translate-y-0 opacity-50 absolute bottom-10 left-8 whitespace-nowrap'
+                                            ? 'text-white'
+                                            : 'text-[#111111] -rotate-90 lg:rotate-[-90deg] origin-left translate-y-20 lg:translate-x-[-50%] lg:translate-y-0 opacity-50 absolute bottom-10 left-8 whitespace-nowrap'
                                             }`}
                                     >
                                         {service.name}
@@ -177,10 +177,10 @@ const Services = () => {
                 </div>
             </div>
 
-            <FlipbookModal 
-                isOpen={isFlipbookOpen} 
-                onClose={() => setIsFlipbookOpen(false)} 
-                pdfUrl="/Maison_Tazuri_Services.pdf" 
+            <FlipbookModal
+                isOpen={isFlipbookOpen}
+                onClose={() => setIsFlipbookOpen(false)}
+                pdfUrl="/Maison_Tazuri_Services.pdf"
             />
         </section>
     );

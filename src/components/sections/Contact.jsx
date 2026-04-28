@@ -27,7 +27,7 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        
+
         try {
             const response = await fetch("https://formspree.io/f/mdapdayv", {
                 method: "POST",
@@ -77,7 +77,7 @@ const Contact = () => {
                             </span>
                             <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[0.9] mb-8">
                                 Ready to <br />
-                                <span className="italic text-[#8ba888]">Create?</span>
+                                <span className="italic text-[#8ba888]">Set Sail?</span>
                             </h2>
                             <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-xl border-l-2 border-[#8ba888]/30 pl-8">
                                 You have the vision. We have the architecture. Let's build something that defies the ordinary.

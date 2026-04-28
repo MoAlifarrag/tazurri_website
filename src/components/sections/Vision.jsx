@@ -72,7 +72,7 @@ const Vision = () => {
                     {/* Content Side */}
                     <div className="lg:col-span-7 order-1 lg:order-2">
                         <SectionHeading
-                            title="The Vision"
+                            title="The Prophecy"
                             subtitle="Redefining the Future"
                             centered={false}
                         />

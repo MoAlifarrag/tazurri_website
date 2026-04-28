@@ -39,13 +39,13 @@ const Navbar = ({ onOpenProfile }) => {
                     <div className="relative">
                         {/* The Floating Capsule */}
                         <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-2xl shadow-black/5 rounded-full px-4 py-3 md:px-6 md:py-3 flex items-center justify-between">
-                            
+
                             {/* 1. Brand / Logo (Compact) */}
                             <a href="#" className="flex items-center gap-2 group">
                                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform">
-                                    <img 
-                                        src="/assets/Final Logo-01.png" 
-                                        alt="Tazuri" 
+                                    <img
+                                        src="/assets/Final Logo-01.png"
+                                        alt="Tazuri"
                                         className="w-full h-full object-contain scale-125"
                                     />
                                 </div>
@@ -68,7 +68,7 @@ const Navbar = ({ onOpenProfile }) => {
                                     onClick={onOpenProfile}
                                     className="relative text-[10px] uppercase tracking-[0.2em] font-bold text-primary hover:text-dark transition-colors py-2 group cursor-pointer"
                                 >
-                                    Portfolio
+                                    Heritage
                                     <span className="absolute bottom-0 left-0 w-0 h-px bg-dark transition-all duration-300 group-hover:w-full" />
                                 </button>
                             </nav>

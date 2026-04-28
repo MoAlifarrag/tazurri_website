@@ -7,7 +7,7 @@ const Footer = ({ onOpenProfile }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 border-b border-white/10 pb-20 md:pb-32 mb-16">
                     <div>
                         <img src="/assets/Final Logo-01.png" alt="Tazuri" className="h-16 md:h-24 mb-8 md:mb-12 brightness-0 invert" />
-                        <h2 className="text-4xl md:text-5xl font-serif max-w-md leading-tight">Let’s Create Something <span className="text-primary">Remarkable</span> Together.</h2>
+                        <h2 className="text-4xl md:text-5xl font-serif max-w-md leading-tight">let's make our success  <span className="text-primary">legendary</span> Together.</h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-20 pt-6 md:pt-10">
                         <div>
@@ -22,7 +22,7 @@ const Footer = ({ onOpenProfile }) => {
                                 <li><a href="https://www.facebook.com/share/1AfawHtwMQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">Facebook</a></li>
                                 <li><a href="https://www.instagram.com/maisontazuri?igsh=bTVkNTQyemNmbWN6" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">Instagram</a></li>
                                 <li><a href="https://www.linkedin.com/company/maisontazuri/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">LinkedIn</a></li>
-                                <li className="pt-4"><button onClick={onOpenProfile} className="text-primary font-bold hover:text-white transition-colors cursor-pointer uppercase text-xs tracking-widest">Portfolio</button></li>
+                                <li className="pt-4"><button onClick={onOpenProfile} className="text-primary font-bold hover:text-white transition-colors cursor-pointer uppercase text-xs tracking-widest">Heritage</button></li>
                             </ul>
                         </div>
                     </div>

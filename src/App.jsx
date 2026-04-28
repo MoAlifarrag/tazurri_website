@@ -43,26 +43,26 @@ function App() {
           <BackgroundEffect />
           <AnimatePresence>
             {showNavbar && (
-              <Navbar 
-                key="navbar" 
-                onOpenProfile={openFlipbook} 
+              <Navbar
+                key="navbar"
+                onOpenProfile={openFlipbook}
               />
             )}
           </AnimatePresence>
           <main>
             <Hero />
-            <Vision />
+            <Prophecy />
             <Forces />
-            <Services />
-            <Partners />
+            <Duties />
+            <bannermen />
             <Contact />
           </main>
           <Footer onOpenProfile={openFlipbook} />
-          
-          <FlipbookModal 
-            isOpen={isFlipbookOpen} 
-            onClose={closeFlipbook} 
-            pdfUrl="/Maison_Tazuri_Company_Profile.pdf" 
+
+          <FlipbookModal
+            isOpen={isFlipbookOpen}
+            onClose={closeFlipbook}
+            pdfUrl="/Maison_Tazuri_Company_Profile.pdf"
           />
         </>
       )}

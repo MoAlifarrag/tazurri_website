@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 const Hero = () => {
     return (
         <section className="relative h-[100dvh] min-h-[600px] w-full flex flex-col items-center bg-[#fcfcf9] overflow-hidden">
-            
+
             {/* 1. THE DRAMATIC BACKDROP */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
                 <motion.div
@@ -56,13 +56,13 @@ const Hero = () => {
                         transition={{ delay: 0.5, duration: 1 }}
                         className="text-5xl sm:text-8xl md:text-[100px] lg:text-[90px] xl:text-[115px] font-serif leading-[0.8] tracking-tighter premium-gradient-text uppercase select-none w-full"
                     >
-                        NOT A COMPANY.<br />
-                        <span className="italic text-[#8ba888]">A CREATION.</span>
+                        Your Northern Star.<br />
+                        <span className="italic text-[#8ba888]">Beyond The Lands Of Creations.</span>
                     </motion.h1>
 
                     <div className="space-y-4 md:space-y-6">
                         <p className="max-w-xl md:max-w-3xl mx-auto text-dark text-xl md:text-2xl lg:text-xl font-serif italic leading-tight px-4 opacity-90">
-                            "Every empire begins with a vision. <br className="hidden md:block" /> Every masterpiece begins with a few."
+                            "Every Empire Begins with a Prophecy. <br className="hidden md:block" /> Every masterpiece begins with a few prophecy, Every heritage begins with a legacy."
                         </p>
 
                         <div className="flex items-center justify-center gap-4 md:gap-10 opacity-30">
@@ -80,12 +80,12 @@ const Hero = () => {
                     transition={{ delay: 1 }}
                     className="shrink-0 pb-6 w-full flex flex-col items-center relative z-10"
                 >
-                    <a 
+                    <a
                         href="#vision"
                         className="group relative px-6 py-5 md:px-12 md:py-4 bg-[#0a0a0a] hover:bg-[#8ba888] rounded-full transition-colors duration-500 shadow-xl hover:shadow-2xl hover:shadow-[#8ba888]/20 w-full md:w-auto flex justify-center overflow-hidden"
                     >
                         {/* Shimmer Effect */}
-                        <motion.div 
+                        <motion.div
                             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full"
                             animate={{ translateX: ["-100%", "200%"] }}
                             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
