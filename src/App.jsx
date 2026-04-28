@@ -51,9 +51,9 @@ function App() {
           </AnimatePresence>
           <main>
             <Hero />
-            <Prophecy />
+            <Vision />
             <Forces />
-            <Duties />
+            <Services />
             <Partners />
             <Contact />
           </main>
