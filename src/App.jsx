@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
-import Vision from './components/sections/Vision';
+import Vision from './components/sections/Prophecy';
 import Forces from './components/sections/Forces';
-import Services from './components/sections/Services';
-import Partners from './components/sections/Partners';
+import Services from './components/sections/Duties';
+import Partners from './components/sections/Bannermen';
 import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
 import BackgroundEffect from './components/common/BackgroundEffect';
@@ -51,10 +51,10 @@ function App() {
           </AnimatePresence>
           <main>
             <Hero />
-            <Vision />
+            <Prophecy />
             <Forces />
-            <Services />
-            <Partners />
+            <Duties />
+            <Bannermen />
             <Contact />
           </main>
           <Footer onOpenProfile={openFlipbook} />
